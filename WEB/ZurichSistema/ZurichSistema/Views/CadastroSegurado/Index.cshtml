@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro de Segurado</h2>
+
+<form>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nome</label>
+        <input type="text" class="form-control" id="Nome" placeholder="Example input">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">CPF</label>
+        <input type="text" class="form-control" id="CPF" placeholder="Another input">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Idade</label>
+        <input type="text" class="form-control" id="Idade" placeholder="Another input">
+    </div>
+
+    <button type="submit" onclick="CadastraSegurado()" id="teste" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+<script type="text/javascript">
+
+    function CadastraSegurado() {
+
+
+        $.ajax({
+            url: "/CadastroSegurado/Cadastra/",
+            data: { Nome: $("#Nome").val(), CPF: $("#CPF").val(), Idade: $("#Idade").val() },
+            type: "post",
+            dataType: "json",
+            beforeSend: function (XMLHttpRequest) {
+                $("#resultado").empty();
+                $("#resultado").append("inicio");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#resultado").empty();
+                $("#resultado").append("erro");
+            },
+            success: function (data, textStatus, XMLHttpRequest) {
+                alert(data);
+            }
+        });
+    }
+</script>

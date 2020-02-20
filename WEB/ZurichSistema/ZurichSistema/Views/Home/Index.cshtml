@@ -1,0 +1,63 @@
+﻿@model ZurichSistema.Models.Segurado
+
+
+
+
+
+<div class="jumbotron">
+    <h2>TESTE CALCULO DE SEGURO</h2>
+</div>
+
+<div class="row">
+    <div class="">
+        <h3 class="display-4">CALCULAR VALOR SEGURO</h3>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Valor</label>
+                <input type="number" class="form-control" id="valorVeiculo" aria-describedby="VALOR" placeholder="VALOR">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Selecione o Segurado</label>
+
+                @if (ViewBag.listSegurado != null)
+                {
+                    @Html.DropDownListFor(model => model.idSegurado, ViewBag.listSegurado as SelectList, "Selecione Segurado", new { @class = "form-control" })
+                }
+
+            </div>
+
+            <button type="submit" onclick="buscaAjax()" id="teste" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    function buscaAjax() {
+
+        alert($("#idSegurado").val());
+
+        $.ajax({
+            url: "/home/Busca/",
+            data: { valor: $("#valorVeiculo").val(), segurado: $("#idSegurado").val() },
+            type: "post",
+            dataType: "json",
+            beforeSend: function (XMLHttpRequest) {
+                $("#resultado").empty();
+                $("#resultado").append("inicio");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#resultado").empty();
+                $("#resultado").append("erro");
+            },
+            success: function (data, textStatus, XMLHttpRequest) {
+                alert(data);
+            }
+        });
+    }
+</script>

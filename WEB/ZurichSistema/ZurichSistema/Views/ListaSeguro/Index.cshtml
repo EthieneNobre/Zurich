@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ZurichSistema.Models.ListaSeguro>
+
+
+@{
+    ViewBag.Title = "Bind Gridview with Database";
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+<h2>Lista segurados</h2>
+@grid.GetHtml(columns: new[]
+    {
+        grid.Column("Nome"),
+        grid.Column("CPF"),
+        grid.Column("Idade"),
+        grid.Column("ValorVeiculo"),
+        grid.Column("Marca"),
+        grid.Column("Modelo"),
+        grid.Column("ValorSeguro")
+
+    }
+)
+
+<style type="text/css">
+    table {
+        width: 100%;
+        padding: 5px;
+    }
+
+        table th {
+            background: #808080;
+            padding: 5px;
+            border: 1px solid #efefef;
+        }
+
+            table th a {
+                color: #efefef;
+            }
+
+        table td {
+            background: #efefef;
+            padding: 5px;
+            border: 1px solid #efefef
+        }
+</style>

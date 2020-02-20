@@ -1,0 +1,63 @@
+﻿@model ZurichSistema.Models.Segurado
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro de Veículo</h2>
+
+<form>
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Selecione o Segurado</label>
+
+        @if (ViewBag.listSegurado != null)
+        {
+            @Html.DropDownListFor(model => model.idSegurado, ViewBag.listSegurado as SelectList, "Selecione Segurado", new { @class = "form-control" })
+        }
+
+    </div>
+
+    <div class="form-group">
+        <label for="formGroupExampleInput">Valor Veículo</label>
+        <input type="text" class="form-control" id="Valor" placeholder="Example input">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Marca</label>
+        <input type="text" class="form-control" id="Marca" placeholder="Another input">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Modelo</label>
+        <input type="text" class="form-control" id="Modelo" placeholder="Another input">
+    </div>
+
+    <button type="submit" onclick="CadastraSegurado()" id="Cadastrar" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+<script type="text/javascript">
+
+    function CadastraSegurado() {
+
+
+        $.ajax({
+            url: "/CadastroVeiculo/Cadastra/",
+            data: { segurado: $("#idSegurado").val(), Valor: $("#Valor").val(), Marca: $("#Marca").val(), Modelo: $("#Modelo").val() },
+            type: "post",
+            dataType: "json",
+            beforeSend: function (XMLHttpRequest) {
+                $("#resultado").empty();
+                $("#resultado").append("inicio");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#resultado").empty();
+                $("#resultado").append("erro");
+            },
+            success: function (data, textStatus, XMLHttpRequest) {
+                alert(data);
+            }
+        });
+    }
+</script>

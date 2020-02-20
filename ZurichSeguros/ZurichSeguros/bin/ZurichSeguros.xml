@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZurichSeguros</name>
+    </assembly>
+    <members>
+        <member name="M:ZurichSeguros.Controllers.DefaultController.CalculoSeguro(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ValorCarro"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ZurichSeguros.Manager.CalculoSeguroVeiculosManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ZurichSeguros.Manager.CalculoSeguroVeiculosManager.CalculoSeguro(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Valor"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ZurichSeguros.Models.CalculoSeguroVeiculos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.ValorVeiculo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.PremioRisco">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.PremioPuro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.PremioComercial">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.ValorSeguro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ZurichSeguros.Models.CalculoSeguroVeiculos.TaxaRisco">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
